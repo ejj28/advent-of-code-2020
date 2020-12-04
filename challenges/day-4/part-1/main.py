@@ -9,15 +9,18 @@ requiredTags = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 entries = []
 
 tags = []
-for i in input:
+for i in range(len(input)):
     
-    if not i.strip():
+    if input[i] == "":
         entries.append(tags)
         tags = []
     else:
-        for x in range(len(i)):
-            if i[x] == ':':
-                tags.append(i[x-3:x])
+        for x in range(len(input[i])):
+            if input[i][x] == ':':
+                tags.append(input[i][x-3:x])
+    if i == len(input) - 1:
+        entries.append(tags)
+        tags = []
 
 complianceCount = 0
 
